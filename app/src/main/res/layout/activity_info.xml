@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/info_layout"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<!--    <TextView-->
+<!--        android:id="@+id/jsonItem"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:gravity="center"-->
+<!--        android:textAlignment="center"-->
+<!--        android:text="@string/no_data"-->
+<!--        android:textSize="24sp" />-->
+
+    <ExpandableListView
+        android:id="@+id/expandableListView"
+        android:layout_width="match_parent"
+        android:choiceMode="singleChoice"
+        android:layout_height="wrap_content"
+        android:indicatorLeft="350dp"
+        android:indicatorRight="400dp"
+        android:groupIndicator="@drawable/indicator"
+        />
+
+</LinearLayout>
