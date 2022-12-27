@@ -121,13 +121,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onStart() {
         super.onStart();
-       saveSharedPreferences();
+       retrieveSharedValue();
+        Log.d("onStart","onStart " + historyRequests);
+    }
+
+    @Override
+    protected void onPostResume() {
+        super.onPostResume();
+        retrieveSharedValue();
+        Log.d("onPostResume","onStart " + historyRequests);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        saveSharedPreferences();
+        Log.d("onPause","onStart " + historyRequests);
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-       retrieveSharedValue();
+        saveSharedPreferences();
+        Log.d("onStop","onStop " + historyRequests);
     }
 
     private void saveSharedPreferences() {
@@ -136,14 +152,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         set.addAll(historyRequests);
         editor.putStringSet("key", set);
         editor.apply();
-        Log.d("history",""+set);
+        Log.d("saveSharedPreferences","history set"+ set);
     }
 
     private void retrieveSharedValue() {
         Set<String> set = shared.getStringSet("key", null);
         historyRequests.clear();
         historyRequests.addAll(set);
-        Log.d("history"," " + set);
+        Log.d("retrieveSharedValue","history array" + historyRequests);
+        stringArrayAdapter.notifyDataSetChanged();
     }
 
 
