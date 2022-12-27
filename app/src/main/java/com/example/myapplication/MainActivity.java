@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -22,8 +23,9 @@ import java.util.Set;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private int cardBin;
-    private  ArrayList<String> historyRequests = new ArrayList<>();
+    private ArrayList<String> historyRequests = new ArrayList<>();
     SharedPreferences shared;
+
     ArrayAdapter<String> stringArrayAdapter;
 
 
@@ -39,8 +41,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ListView historyList = findViewById(R.id.historyListView);
 
 
-        shared = getSharedPreferences("Request_history", MODE_PRIVATE);
-
+        shared = this.getSharedPreferences("com.example.myapplication", Context.MODE_PRIVATE);
 
         stringArrayAdapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_list_item_1, historyRequests);
@@ -117,22 +118,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+       saveSharedPreferences();
+    }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+       retrieveSharedValue();
+    }
 
     private void saveSharedPreferences() {
         SharedPreferences.Editor editor = shared.edit();
         Set<String> set = new HashSet<>();
         set.addAll(historyRequests);
-        editor.putStringSet("DATE_LIST", set);
+        editor.putStringSet("key", set);
         editor.apply();
-        Log.d("storesharedPreferences",""+set);
+        Log.d("history",""+set);
     }
 
     private void retrieveSharedValue() {
-        Set<String> set = shared.getStringSet("DATE_LIST", null);
+        Set<String> set = shared.getStringSet("key", null);
         historyRequests.clear();
         historyRequests.addAll(set);
-        Log.d("saveSharedPreferences"," " + set);
+        Log.d("history"," " + set);
     }
 
 

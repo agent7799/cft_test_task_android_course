@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:https="http://schemas.android.com/apk/res-auto">
     <string name="app_name">My Application</string>
     <string name="about_info">Тестовое задание.Курс Android.</string>
     <string name="info">info</string>
@@ -6,13 +6,11 @@
     <string name="back">Back</string>
     <string name="about_title">About</string>
     <string name="main_title">Main</string>
-    <string name="about_text">
-Android-приложение со следующими функциями:
-
-    1. Пользователь вводит BIN банковской карты и видит всю доступную информацию о нём, загруженную с https://binlist.net/
-    2. История предыдущих запросов выводится списком
-    3. История предыдущих запросов не теряется при перезапуске приложения
-    4. Нажатие на URL банка, телефон банка, координаты страны отправляет пользователя в приложение, которое может обработать эти данные (браузер, звонилка, карты)
+    <string name="about_text">Android-приложение со следующими функциями: \n \n
+    1. Пользователь вводит BIN банковской карты и видит всю доступную информацию о нём, загруженную с &lt;a href="https://binlist.net/">https://binlist.net/&lt;/a> \n
+    2. История предыдущих запросов выводится списком \n
+    3. История предыдущих запросов не теряется при перезапуске приложения \n
+    4. Нажатие на URL банка, телефон банка, координаты страны отправляет пользователя в приложение, которое может обработать эти данные (браузер, звонилка, карты) \n
    </string>
     <string name="no_data">No data</string>
     <string name="hint_8_digits"><font size = "16"> enter first 8 digits of card number</font></string>

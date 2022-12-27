@@ -17,8 +17,10 @@
         <activity
             android:name=".PlainActivity"
             android:label="@string/info"
-            android:exported="false"
-            android:parentActivityName=".MainActivity">
+            android:exported="false">
+<!--            android:parentActivityName=".MainActivity">-->
+
+
             <meta-data
                 android:name="android.app.lib_name"
                 android:value=""
@@ -44,8 +46,7 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:alwaysRetainTaskState="true"
-            android:label="@string/main_title">
+            android:alwaysRetainTaskState="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
